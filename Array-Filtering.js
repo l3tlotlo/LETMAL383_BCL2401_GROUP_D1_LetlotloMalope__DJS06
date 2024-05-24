@@ -80,3 +80,20 @@ console.log('\nTotal price of valid products:',
     .map(product => ({ ...product, price: Number(product.price) }))
     .reduce((total, product) => total + product.price, 0)
 );
+
+// Concatenation of product names
+console.log('\nConcatenated Product Names:', products.reduce((acc, product) => acc + product.product, ''));
+
+// Finding the extremes in product prices
+const validProducts = products.filter(product => product.price && !isNaN(product.price)).map(product => ({ ...product, price: Number(product.price) }));
+const highestPriceProduct = validProducts.reduce((prev, curr) => (prev.price > curr.price ? prev : curr));
+const lowestPriceProduct = validProducts.reduce((prev, curr) => (prev.price < curr.price ? prev : curr));
+console.log(`\nHighest: ${highestPriceProduct.product}. Lowest: ${lowestPriceProduct.product}.`);
+
+// Transforming objects
+console.log('\nTransformed Products Object:',
+  Object.entries(products).reduce((acc, [index, product]) => {
+    acc[index] = { name: product.product, cost: product.price };
+    return acc;
+  }, {})
+);
