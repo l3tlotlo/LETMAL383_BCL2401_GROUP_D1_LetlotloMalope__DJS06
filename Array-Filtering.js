@@ -63,3 +63,20 @@ const nameProvinceMapping = names.reduce((acc, name, index) => {
   return acc;
 }, {});
 console.log('\nName-Province Mapping:', nameProvinceMapping);
+
+// Advanced Exercises (Single console.log Execution)
+console.log('\nAdvanced Exercises:');
+
+// Log Products
+console.log('\nProduct Names:', products.map(product => product.product));
+
+// Filter products with names of five characters or less
+console.log('\nProducts with names 5 characters or shorter:', products.filter(product => product.product.length <= 5));
+
+// Manipulation of prices
+console.log('\nTotal price of valid products:',
+  products
+    .filter(product => product.price && !isNaN(product.price))
+    .map(product => ({ ...product, price: Number(product.price) }))
+    .reduce((total, product) => total + product.price, 0)
+);
