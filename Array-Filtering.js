@@ -48,3 +48,18 @@ console.log('\nName Lengths:', nameLengths);
 // Sorting provinces
 const sortedProvinces = [...provinces].sort();
 console.log('\nSorted Provinces:', sortedProvinces);
+
+// Filtering provinces containing the worrd "Cape"
+const nonCapeProvinces = provinces.filter(province => !province.includes('Cape'));
+console.log('\nCount of Non-Cape Provinces:', nonCapeProvinces.length);
+
+// Finding names containing the letter  'S'
+const hasLetterS = names.map(name => name.toLowerCase().includes('s'));
+console.log('\nNames containing "S":', hasLetterS);
+
+//Creating province array object mapping
+const nameProvinceMapping = names.reduce((acc, name, index) => {
+  acc[name] = provinces[index];
+  return acc;
+}, {});
+console.log('\nName-Province Mapping:', nameProvinceMapping);
