@@ -36,3 +36,15 @@ provinces.forEach(province => console.log(province));
 
 console.log('\nNames with matching provinces:');
 names.forEach((name, index) => console.log(`${name} (${provinces[index]})`));
+
+// Transforming province names to uppercase
+const uppercasedProvinces = provinces.map(province => province.toUpperCase());
+console.log('\nUppercased Provinces:', uppercasedProvinces);
+
+// Logging the length of names to the console
+const nameLengths = names.map(name => name.length);
+console.log('\nName Lengths:', nameLengths);
+
+// Sorting provinces
+const sortedProvinces = [...provinces].sort();
+console.log('\nSorted Provinces:', sortedProvinces);
